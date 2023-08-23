@@ -23,7 +23,7 @@ public class Message {
 
     @ManyToOne
     @JoinColumn(name="channel_id",insertable = false,updatable = false)
-    private Channel channel;
+    private Channel channell;
 
     @ManyToOne
     @JoinColumn(name="channel_access_id",insertable = false,updatable = false)
@@ -32,8 +32,8 @@ public class Message {
     @OneToMany(mappedBy = "message")
     private List<Threadd> threadds;
 
-    @OneToOne(mappedBy = "messagee")
-    private Threadd threadd;
+    @OneToMany(mappedBy = "messagee")
+    private List<Threadd> threaddList;
 
     public int getMessage_id() {
         return message_id;
@@ -75,12 +75,12 @@ public class Message {
         this.channel_access_id = channel_access_id;
     }
 
-    public Channel getChannel() {
-        return channel;
+    public Channel getChannell() {
+        return channell;
     }
 
-    public void setChannel(Channel channel) {
-        this.channel = channel;
+    public void setChannell(Channel channell) {
+        this.channell = channell;
     }
 
     public Channel_Access getChannelAcces() {
@@ -99,11 +99,11 @@ public class Message {
         this.threadds = threadds;
     }
 
-    public Threadd getThreadd() {
-        return threadd;
+    public List<Threadd> getThreaddList() {
+        return threaddList;
     }
 
-    public void setThreadd(Threadd threadd) {
-        this.threadd = threadd;
+    public void setThreaddList(List<Threadd> threaddList) {
+        this.threaddList = threaddList;
     }
 }

@@ -3,7 +3,7 @@ package com.img.slack.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table(name="threadd")
 public class Threadd {
     @Id
     private int thread_id;
@@ -16,7 +16,7 @@ public class Threadd {
     @JoinColumn(name="message_id",insertable = false,updatable = false)
     private Message message;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "reply_id",insertable = false,updatable = false)
     private Message messagee;
 

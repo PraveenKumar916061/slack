@@ -15,16 +15,23 @@ public class WorkSpace_Access {
 
     private int workspace_user_id;
 
+    @ManyToMany
+    @JoinTable(
+            name = "workspace_access",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "workspace_id")
+    )
+    private List<User> users;
+
     @ManyToOne
     @JoinColumn(name="workspace_id",insertable = false,updatable = false)
     private WorkSpace workSpace;
 
     @OneToMany(mappedBy = "workSpaceAccess")
-    private List<User> users;
+    private List<Channel> channels;
 
-    @ManyToOne
-    @JoinColumn(name="workspace_access_id",insertable = false,updatable = false)
-    private Channel channel;
+    @OneToMany(mappedBy = "workSpace_access")
+    private List<Channel_Access> channelAccesses;
 
     public int getWorkspace_access_id() {
         return workspace_access_id;
@@ -50,14 +57,6 @@ public class WorkSpace_Access {
         this.workspace_user_id = workspace_user_id;
     }
 
-    public WorkSpace getWorkSpace() {
-        return workSpace;
-    }
-
-    public void setWorkSpace(WorkSpace workSpace) {
-        this.workSpace = workSpace;
-    }
-
     public List<User> getUsers() {
         return users;
     }
@@ -66,11 +65,27 @@ public class WorkSpace_Access {
         this.users = users;
     }
 
-    public Channel getChannel() {
-        return channel;
+    public WorkSpace getWorkSpace() {
+        return workSpace;
     }
 
-    public void setChannel(Channel channel) {
-        this.channel = channel;
+    public void setWorkSpace(WorkSpace workSpace) {
+        this.workSpace = workSpace;
+    }
+
+    public List<Channel> getChannels() {
+        return channels;
+    }
+
+    public void setChannels(List<Channel> channels) {
+        this.channels = channels;
+    }
+
+    public List<Channel_Access> getChannelAccesses() {
+        return channelAccesses;
+    }
+
+    public void setChannelAccesses(List<Channel_Access> channelAccesses) {
+        this.channelAccesses = channelAccesses;
     }
 }

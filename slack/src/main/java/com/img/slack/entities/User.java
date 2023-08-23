@@ -14,50 +14,49 @@ public class User {
     private String user_name;
     private String password;
 
-    @ManyToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "user")
     private List<WorkSpace> workSpaces;
 
-    @ManyToOne
-    @JoinColumn(name="user_id",insertable = false,updatable = false)
-    private WorkSpace_Access workSpaceAccess;
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setWorkSpaces(List<WorkSpace> workSpaces) {
-        this.workSpaces = workSpaces;
-    }
-
-    public void setWorkSpaceAccess(WorkSpace_Access workSpaceAccess) {
-        this.workSpaceAccess = workSpaceAccess;
-    }
+    @ManyToMany(mappedBy = "users")
+    private List<WorkSpace_Access> workSpaceAccessess;
 
     public int getUser_id() {
         return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public String getUser_name() {
         return user_name;
     }
 
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<WorkSpace> getWorkSpaces() {
         return workSpaces;
     }
 
-    public WorkSpace_Access getWorkSpaceAccess() {
-        return workSpaceAccess;
+    public void setWorkSpaces(List<WorkSpace> workSpaces) {
+        this.workSpaces = workSpaces;
+    }
+
+    public List<WorkSpace_Access> getWorkSpaceAccessess() {
+        return workSpaceAccessess;
+    }
+
+    public void setWorkSpaceAccessess(List<WorkSpace_Access> workSpaceAccessess) {
+        this.workSpaceAccessess = workSpaceAccessess;
     }
 }

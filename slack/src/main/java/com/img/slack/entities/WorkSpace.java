@@ -19,14 +19,9 @@ public class WorkSpace {
 
     private int created_by;
 
-    @ManyToMany
-    @JoinTable(
-            name = "workspace_access",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "workspace_id")
-    )
-    @JoinColumn(name="user_id",insertable = false,updatable = false)
-    private List<User> users;
+    @ManyToOne
+    @JoinColumn(name="created_by",insertable = false,updatable = false)
+    private User user;
 
     @OneToMany(mappedBy = "workSpace")
     private List<WorkSpace_Access> workSpaceAccesses;
@@ -63,12 +58,12 @@ public class WorkSpace {
         this.created_by = created_by;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public User getUser() {
+        return user;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public List<WorkSpace_Access> getWorkSpaceAccesses() {

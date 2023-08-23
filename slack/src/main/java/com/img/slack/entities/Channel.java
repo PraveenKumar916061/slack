@@ -18,13 +18,14 @@ public class Channel {
 
     private int workspace_access_id;
 
-    @OneToMany(mappedBy = "channel")
-    private List<WorkSpace_Access> workSpaceAccesses;
+    @ManyToOne
+    @JoinColumn(name="workspace_access_id",insertable = false,updatable = false)
+    private WorkSpace_Access workSpaceAccess;
 
     @OneToMany(mappedBy = "channel")
     private List<Channel_Access> channelAccesses;
 
-    @OneToMany(mappedBy = "channel")
+    @OneToMany(mappedBy = "channell")
     private List<Message> messages;
 
     public int getChannel_id() {
@@ -59,12 +60,12 @@ public class Channel {
         this.workspace_access_id = workspace_access_id;
     }
 
-    public List<WorkSpace_Access> getWorkSpaceAccesses() {
-        return workSpaceAccesses;
+    public WorkSpace_Access getWorkSpaceAccess() {
+        return workSpaceAccess;
     }
 
-    public void setWorkSpaceAccesses(List<WorkSpace_Access> workSpaceAccesses) {
-        this.workSpaceAccesses = workSpaceAccesses;
+    public void setWorkSpaceAccess(WorkSpace_Access workSpaceAccess) {
+        this.workSpaceAccess = workSpaceAccess;
     }
 
     public List<Channel_Access> getChannelAccesses() {

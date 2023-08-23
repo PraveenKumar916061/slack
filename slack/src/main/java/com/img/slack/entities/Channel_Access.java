@@ -17,15 +17,15 @@ public class Channel_Access {
     private int user_id;
 
     @ManyToOne
+    @JoinColumn(name="channel_access_id",insertable = false,updatable = false)
+    private WorkSpace_Access workSpace_access;
+
+    @ManyToOne
     @JoinColumn(name="channel_id",insertable = false,updatable = false)
     private Channel channel;
 
-    @ManyToOne
-    @JoinColumn(name = "channel_id",insertable = false,updatable = false)
-    private WorkSpace_Access workSpaceAccess;
-
     @OneToMany(mappedBy = "channelAcces")
-    private List<Message> messages;
+    private List<Message> messagess;
 
     public int getChannel_access_id() {
         return channel_access_id;
@@ -51,6 +51,14 @@ public class Channel_Access {
         this.user_id = user_id;
     }
 
+    public WorkSpace_Access getWorkSpace_access() {
+        return workSpace_access;
+    }
+
+    public void setWorkSpace_access(WorkSpace_Access workSpace_access) {
+        this.workSpace_access = workSpace_access;
+    }
+
     public Channel getChannel() {
         return channel;
     }
@@ -59,19 +67,11 @@ public class Channel_Access {
         this.channel = channel;
     }
 
-    public WorkSpace_Access getWorkSpaceAccess() {
-        return workSpaceAccess;
+    public List<Message> getMessagess() {
+        return messagess;
     }
 
-    public void setWorkSpaceAccess(WorkSpace_Access workSpaceAccess) {
-        this.workSpaceAccess = workSpaceAccess;
-    }
-
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
+    public void setMessagess(List<Message> messagess) {
+        this.messagess = messagess;
     }
 }
