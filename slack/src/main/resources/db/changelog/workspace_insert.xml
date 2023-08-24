@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <changeSet id="9" author="praveen">
+        <insert tableName="workspaces">
+            <column name="workspace_name" value="Logistics"></column>
+            <column name="description" value="transportation"></column>
+            <column name="created_by" value="12"></column>
+        </insert>
+        <insert tableName="workspaces">
+            <column name="workspace_name" value="Front_end"></column>
+            <column name="description" value="user_interface"></column>
+            <column name="created_by" value="14"></column>
+        </insert>
+        <insert tableName="workspaces">
+            <column name="workspace_name" value="Back_end"></column>
+            <column name="description" value="business_logic"></column>
+            <column name="created_by" value="11"></column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <changeSet id="8" author="praveen">
+        <insert tableName="users">
+            <column name="user_name" value="arun"></column>
+            <column name="password" value="arun@123"></column>
+        </insert>
+        <insert tableName="users">
+            <column name="user_name" value="dinesh"></column>
+            <column name="password" value="dinesh@123"></column>
+        </insert>
+        <insert tableName="users">
+            <column name="user_name" value="praveen"></column>
+            <column name="password" value="praveen@123"></column>
+        </insert>
+        <insert tableName="users">
+            <column name="user_name" value="vinay"></column>
+            <column name="password" value="vinay@123"></column>
+        </insert>
+        <insert tableName="users">
+            <column name="user_name" value="naidu"></column>
+            <column name="password" value="naidu@123"></column>
+        </insert>
+        <insert tableName="users">
+            <column name="user_name" value="bharath"></column>
+            <column name="password" value="bharath@123"></column>
+        </insert>
+        <insert tableName="users">
+            <column name="user_name" value="kalyan"></column>
+            <column name="password" value="kalyan@123"></column>
+        </insert>
+        <insert tableName="users">
+            <column name="user_name" value="vardhan"></column>
+            <column name="password" value="vardhan@123"></column>
+        </insert>
+        <insert tableName="users">
+            <column name="user_name" value="madhu"></column>
+            <column name="password" value="madhu@123"></column>
+        </insert>
+        <insert tableName="users">
+            <column name="user_name" value="prasanna"></column>
+            <column name="password" value="prasanna@123"></column>
+        </insert>
+        <insert tableName="users">
+            <column name="user_name" value="harsha"></column>
+            <column name="password" value="harsha@123"></column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

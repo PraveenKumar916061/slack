@@ -17,7 +17,7 @@ public class Channel_Access {
     private int user_id;
 
     @ManyToOne
-    @JoinColumn(name="channel_access_id",insertable = false,updatable = false)
+    @JoinColumn(name="user_id",referencedColumnName = "workspace_access_id",insertable = false,updatable = false)
     private WorkSpace_Access workSpace_access;
 
     @ManyToOne

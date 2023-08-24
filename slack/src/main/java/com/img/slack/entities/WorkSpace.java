@@ -20,7 +20,7 @@ public class WorkSpace {
     private int created_by;
 
     @ManyToOne
-    @JoinColumn(name="created_by",insertable = false,updatable = false)
+    @JoinColumn(name="created_by",referencedColumnName = "user_id",insertable = false,updatable = false)
     private User user;
 
     @OneToMany(mappedBy = "workSpace")

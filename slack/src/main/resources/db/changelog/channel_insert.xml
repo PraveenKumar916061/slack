@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <changeSet id="11" author="praveen">
+        <insert tableName="channels">
+            <column name="channel_name" value="frieghts"></column>
+            <column name="description" value="packages"></column>
+            <column name="workspace_access_id" value="1009"></column>
+        </insert>
+        <insert tableName="channels">
+            <column name="channel_name" value="webapp"></column>
+            <column name="description" value="development"></column>
+            <column name="workspace_access_id" value="1004"></column>
+        </insert>
+        <insert tableName="channels">
+            <column name="channel_name" value="merchant"></column>
+            <column name="description" value="shipment"></column>
+            <column name="workspace_access_id" value="1003"></column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <changeSet id="12" author="praveen">
+        <insert tableName="channel_access">
+            <column name="channel_id" value="100"></column>
+            <column name="user_id" value="1009"></column>
+        </insert>
+        <insert tableName="channel_access">
+            <column name="channel_id" value="100"></column>
+            <column name="user_id" value="1002"></column>
+        </insert>
+        <insert tableName="channel_access">
+            <column name="channel_id" value="100"></column>
+            <column name="user_id" value="1001"></column>
+        </insert>
+        <insert tableName="channel_access">
+            <column name="channel_id" value="100"></column>
+            <column name="user_id" value="1005"></column>
+        </insert>
+        <insert tableName="channel_access">
+            <column name="channel_id" value="101"></column>
+            <column name="user_id" value="1004"></column>
+        </insert>
+        <insert tableName="channel_access">
+            <column name="channel_id" value="101"></column>
+            <column name="user_id" value="1000"></column>
+        </insert>
+        <insert tableName="channel_access">
+            <column name="channel_id" value="101"></column>
+            <column name="user_id" value="1007"></column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

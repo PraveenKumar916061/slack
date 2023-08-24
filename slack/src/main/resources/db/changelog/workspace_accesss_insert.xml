@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+    <changeSet id="10" author="praveen">
+        <insert tableName="workspace_access">
+            <column name="workspace_id" value="100"></column>
+            <column name="workspace_user_id" value="15"></column>
+        </insert>
+        <insert tableName="workspace_access">
+            <column name="workspace_id" value="100"></column>
+            <column name="workspace_user_id" value="10"></column>
+        </insert>
+        <insert tableName="workspace_access">
+            <column name="workspace_id" value="101"></column>
+            <column name="workspace_user_id" value="13"></column>
+        </insert>
+        <insert tableName="workspace_access">
+            <column name="workspace_id" value="102"></column>
+            <column name="workspace_user_id" value="11"></column>
+        </insert>
+        <insert tableName="workspace_access">
+            <column name="workspace_id" value="101"></column>
+            <column name="workspace_user_id" value="14"></column>
+        </insert>
+        <insert tableName="workspace_access">
+            <column name="workspace_id" value="100"></column>
+            <column name="workspace_user_id" value="18"></column>
+        </insert>
+        <insert tableName="workspace_access">
+            <column name="workspace_id" value="102"></column>
+            <column name="workspace_user_id" value="16"></column>
+        </insert>
+        <insert tableName="workspace_access">
+            <column name="workspace_id" value="101"></column>
+            <column name="workspace_user_id" value="17"></column>
+        </insert>
+        <insert tableName="workspace_access">
+            <column name="workspace_id" value="100"></column>
+            <column name="workspace_user_id" value="19"></column>
+        </insert>
+        <insert tableName="workspace_access">
+            <column name="workspace_id" value="100"></column>
+            <column name="workspace_user_id" value="12"></column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
