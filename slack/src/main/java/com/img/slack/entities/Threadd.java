@@ -1,9 +1,10 @@
 package com.img.slack.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="thread")
+@Table(name="threads")
 public class Threadd {
     @Id
     private int thread_id;
@@ -13,10 +14,12 @@ public class Threadd {
     private int reply_id;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name="message_id",insertable = false,updatable = false)
     private Message message;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "reply_id",referencedColumnName = "message_id",insertable = false,updatable = false)
     private Message messagee;
 

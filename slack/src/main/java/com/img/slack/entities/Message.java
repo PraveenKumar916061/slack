@@ -1,5 +1,6 @@
 package com.img.slack.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -22,17 +23,21 @@ public class Message {
     private int channel_access_id;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name="channel_id",insertable = false,updatable = false)
     private Channel channell;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name="channel_access_id",insertable = false,updatable = false)
     private Channel_Access channelAcces;
 
     @OneToMany(mappedBy = "message")
+    @JsonIgnore
     private List<Threadd> threadds;
 
     @OneToMany(mappedBy = "messagee")
+    @JsonIgnore
     private List<Threadd> threaddList;
 
     public int getMessage_id() {

@@ -1,5 +1,6 @@
 package com.img.slack.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class WorkSpace_Access {
     private int workspace_user_id;
 
     @ManyToMany
+    @JsonIgnore
     @JoinTable(
             name = "workspace_access",
             joinColumns = @JoinColumn(name = "user_id"),
@@ -24,10 +26,12 @@ public class WorkSpace_Access {
     private List<User> users;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name="workspace_id",insertable = false,updatable = false)
     private WorkSpace workSpace;
 
     @OneToMany(mappedBy = "workSpaceAccess")
+    @JsonIgnore
     private List<Channel> channels;
 
     @OneToMany(mappedBy = "workSpace_access")

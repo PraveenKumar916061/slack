@@ -1,5 +1,6 @@
 package com.img.slack.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -15,9 +16,11 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<WorkSpace> workSpaces;
 
     @ManyToMany(mappedBy = "users")
+    @JsonIgnore
     private List<WorkSpace_Access> workSpaceAccessess;
 
     public int getUser_id() {

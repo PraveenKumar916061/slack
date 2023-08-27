@@ -1,5 +1,6 @@
 package com.img.slack.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -20,10 +21,12 @@ public class WorkSpace {
     private int created_by;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name="created_by",referencedColumnName = "user_id",insertable = false,updatable = false)
     private User user;
 
     @OneToMany(mappedBy = "workSpace")
+    @JsonIgnore
     private List<WorkSpace_Access> workSpaceAccesses;
 
     public int getWorkspace_id() {

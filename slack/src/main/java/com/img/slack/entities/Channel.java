@@ -1,5 +1,6 @@
 package com.img.slack.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -19,13 +20,16 @@ public class Channel {
     private int workspace_access_id;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name="workspace_access_id",insertable = false,updatable = false)
     private WorkSpace_Access workSpaceAccess;
 
     @OneToMany(mappedBy = "channel")
+    @JsonIgnore
     private List<Channel_Access> channelAccesses;
 
     @OneToMany(mappedBy = "channell")
+    @JsonIgnore
     private List<Message> messages;
 
     public int getChannel_id() {

@@ -1,48 +1,44 @@
 package com.img.slack.controller;
 
-import com.img.slack.entities.Channel_Access;
-import com.img.slack.entities.Message;
-import com.img.slack.entities.User;
-import com.img.slack.repos.ChannelRepo;
-import com.img.slack.repos.Channel_AccessRepo;
-import com.img.slack.repos.MessageRepo;
-import com.img.slack.service.ChannelService;
+import com.img.slack.entities.Channel;
+import com.img.slack.service.ChannelServiceImp;
+import org.apache.commons.collections4.Put;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
-@Controller
-public class TestingController {
+@RestController
+public class ChannelController {
 
     @Autowired
-    private MessageRepo messageRepo;
+    private ChannelServiceImp channelServiceImp;
 
-    @Autowired
-    private ChannelService channelService;
-
-    @Autowired
-    private Channel_AccessRepo chAcRepo;
-
-    @GetMapping("/hello")
-    @ResponseBody
-    public String test(){
-        return "Hello Slack";
+    @GetMapping("/getchannels")
+    public List<Channel> getChannels(){
+        return channelServiceImp.getChannels();
     }
 
-    @GetMapping("/getmsg")
-    @ResponseBody
-    public List<Message> getMessages(){
-        return messageRepo.getAllMessages();
+    @PostMapping("/createChannel")
+    public Channel createChannel(@RequestBody Channel channel){
+        return channelServiceImp.createChannel(channel);
     }
 
-    @GetMapping("/getUser/id")
-    @ResponseBody
-    public List<User> getAllUsers(@PathVariable("id") int id){
-        return chAcRepo.getUsers(id);
+    @DeleteMapping("/deletechannel/{channel_id}")
+    public String deleteChannel(@PathVariable("channel_id") int channel_id) {
+        channelServiceImp.deleteChannel(channel_id);
+        return "Channel id "+channel_id+" successfully deleted";
+    }
+
+    @GetMapping("/listOfChannelByWPA/{wpa_id}")
+    public List<Channel> listOfChannelsByWorkSpace(@PathVariable("wpa_id") Integer wpa_id) {
+        return channelServiceImp.listOfChannelsByWorkSpace(wpa_id);
+    }
+
+    @PutMapping("/updateChannelname/{channel_id}")
+    public Channel updateChannelName(@PathVariable("channel_id") int channel_id,@RequestParam("channel_name") String channel_name) {
+        return channelServiceImp.updateChannelName(channel_id,channel_name);
     }
 }
