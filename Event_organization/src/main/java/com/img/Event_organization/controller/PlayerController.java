@@ -2,18 +2,14 @@ package com.img.Event_organization.controller;
 
 import com.img.Event_organization.entity.Player;
 import com.img.Event_organization.exception.AlreadyTeamFilledException;
+import com.img.Event_organization.exception.CollegeNotAllowedException;
 import com.img.Event_organization.exception.InvalidEmailException;
-import com.img.Event_organization.exception.InvalidMobieleNumberException;
+import com.img.Event_organization.exception.InvalidMobileNumberException;
 import com.img.Event_organization.service.PlayerServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @RestController
 public class PlayerController {
@@ -22,7 +18,7 @@ public class PlayerController {
     private PlayerServiceImp playerServiceImp;
 
     @PostMapping("/registerPlayer")
-    public Player registerPlayer(@RequestBody Player player) throws InvalidMobieleNumberException, InvalidEmailException, AlreadyTeamFilledException {
+    public Player registerPlayer(@RequestBody Player player) throws InvalidMobileNumberException, InvalidEmailException, AlreadyTeamFilledException , CollegeNotAllowedException {
         return playerServiceImp.registerPlayer(player);
     }
 
@@ -43,7 +39,7 @@ public class PlayerController {
     }
 
     @PutMapping("/updatePlayerPhno/{player_id}")
-    public Player updatePlayerPhNo(@PathVariable("player_id") int player_id,@RequestParam("phno") long phno) throws InvalidMobieleNumberException {
+    public Player updatePlayerPhNo(@PathVariable("player_id") int player_id,@RequestParam("phno") long phno) throws InvalidMobileNumberException {
         return  playerServiceImp.updatePlayerPhNo(player_id,phno);
     }
 }
